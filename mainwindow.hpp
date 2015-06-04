@@ -59,8 +59,8 @@ private:
     QPushButton *inc1000000000Button;
     QPushButton *resetButton;
 
-    int inCircle;
-    int outCircle;
+    long int inCircle;
+    long int outCircle;
 
     void resetImage();
     void hitDots(int n);

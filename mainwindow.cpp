@@ -90,7 +90,7 @@ MainWindow::resetImage()
     for (i = 0; i < diameter; i++)
         for (j = 0; j < diameter; j++)
             img.setPixel(i, j, qRgb(255, 255, 255));
-    inCircle = outCircle = 0;
+    inCircle = outCircle = 0L;
 
     view->showImage(img);
     piLabel->setText("0.0");
@@ -119,7 +119,7 @@ MainWindow::hitDots(int n)
         }
     }
     view->showImage(img);
-    piLabel->setText(QString::number(4*(double)inCircle/(double)(inCircle+outCircle)));
+    piLabel->setText(QString::number(4.0*((double)inCircle/(double)(inCircle+outCircle)), 'g', 15));
     this->setWindowTitle(QString::number(inCircle+outCircle));
 }
 
