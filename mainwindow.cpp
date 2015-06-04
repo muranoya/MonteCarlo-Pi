@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     , inc10000000Button(new QPushButton("1000万点打つ"))
     , inc100000000Button(new QPushButton("1億点打つ"))
     , resetButton(new QPushButton("リセット"))
+    , mt(rnd())
 {
     setCentralWidget(cw);
     cw->setLayout(layout);
@@ -102,10 +103,11 @@ MainWindow::hitDots(int n)
 {
     int i;
     int x, y;
+    std::uniform_int_distribution<int> brand(0, diameter-1);
     for (i = 0; i < n; i++)
     {
-        x = boundRand(0, diameter-1);
-        y = boundRand(0, diameter-1);
+        x = brand(mt);
+        y = brand(mt);
 
         if (isInCircle(x, y))
         {
@@ -122,9 +124,6 @@ MainWindow::hitDots(int n)
     piLabel->setText(QString::number(4.0*((double)inCircle/(double)(inCircle+outCircle)), 'g', 15));
     this->setWindowTitle(QString::number(inCircle+outCircle));
 }
-
-int
-MainWindow::boundRand(int l, int u) const { return (int)(qrand()*(u-l+1.0)/(1.0+RAND_MAX)); }
 
 bool
 MainWindow::isInCircle(int x, int y) const

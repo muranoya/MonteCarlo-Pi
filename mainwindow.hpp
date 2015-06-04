@@ -10,6 +10,7 @@
 #include <QLabel>
 
 #include <stdlib.h>
+#include <random>
 
 #include "imageviewer.hpp"
 
@@ -62,9 +63,11 @@ private:
     long int inCircle;
     long int outCircle;
 
+    std::random_device rnd;
+    std::mt19937 mt;
+
     void resetImage();
     void hitDots(int n);
-    int boundRand(int l, int u) const;
     bool isInCircle(int x, int y) const;
 };
 
