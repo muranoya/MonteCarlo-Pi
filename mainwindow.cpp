@@ -103,6 +103,7 @@ MainWindow::hitDots(int n)
 {
     int i;
     int x, y;
+    QRgb *bits = (QRgb*)img.bits();
     std::uniform_int_distribution<int> brand(0, diameter-1);
     for (i = 0; i < n; i++)
     {
@@ -112,12 +113,14 @@ MainWindow::hitDots(int n)
         if (isInCircle(x, y))
         {
             inCircle++;
-            img.setPixel(x, y, qRgb(255, 0, 0));
+            *(bits+x+y*diameter) = qRgb(255, 0, 0);
+            //img.setPixel(x, y, qRgb(255, 0, 0));
         }
         else
         {
             outCircle++;
-            img.setPixel(x, y, qRgb(0, 0, 255));
+            *(bits+x+y*diameter) = qRgb(0, 0, 255);
+            //img.setPixel(x, y, qRgb(0, 0, 255));
         }
     }
     view->showImage(img);
