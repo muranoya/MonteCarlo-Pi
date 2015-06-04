@@ -28,6 +28,8 @@ private slots:
     void inc10000Button_Clicked(bool checked);
     void inc100000Button_Clicked(bool checked);
     void inc1000000Button_Clicked(bool checked);
+    void inc10000000Button_Clicked(bool checked);
+    void inc100000000Button_Clicked(bool checked);
     void resetButton_Clicked(bool checked);
 
 private:
@@ -53,6 +55,8 @@ private:
     QPushButton *inc100000Button;
     QPushButton *inc1000000Button;
     QPushButton *inc10000000Button;
+    QPushButton *inc100000000Button;
+    QPushButton *inc1000000000Button;
     QPushButton *resetButton;
 
     int inCircle;

@@ -19,6 +19,8 @@ MainWindow::MainWindow(QWidget *parent)
     , inc10000Button(new QPushButton("1万点打つ"))
     , inc100000Button(new QPushButton("10万点打つ"))
     , inc1000000Button(new QPushButton("100万点打つ"))
+    , inc10000000Button(new QPushButton("1000万点打つ"))
+    , inc100000000Button(new QPushButton("1億点打つ"))
     , resetButton(new QPushButton("リセット"))
 {
     setCentralWidget(cw);
@@ -34,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(inc10000Button, SIGNAL(clicked(bool)), this, SLOT(inc10000Button_Clicked(bool)));
     connect(inc100000Button, SIGNAL(clicked(bool)), this, SLOT(inc100000Button_Clicked(bool)));
     connect(inc1000000Button, SIGNAL(clicked(bool)), this, SLOT(inc1000000Button_Clicked(bool)));
+    connect(inc10000000Button, SIGNAL(clicked(bool)), this, SLOT(inc10000000Button_Clicked(bool)));
+    connect(inc100000000Button, SIGNAL(clicked(bool)), this, SLOT(inc100000000Button_Clicked(bool)));
     connect(resetButton, SIGNAL(clicked(bool)), this, SLOT(resetButton_Clicked(bool)));
 
     graphicLayout->addWidget(view);
@@ -45,6 +49,8 @@ MainWindow::MainWindow(QWidget *parent)
     buttonLayout->addWidget(inc10000Button);
     buttonLayout->addWidget(inc100000Button);
     buttonLayout->addWidget(inc1000000Button);
+    buttonLayout->addWidget(inc10000000Button);
+    buttonLayout->addWidget(inc100000000Button);
     buttonLayout->addWidget(resetButton);
 
     piLabel->setAlignment(Qt::AlignCenter);
@@ -56,60 +62,25 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow() { }
 
 void
-MainWindow::inc1Button_Clicked(bool checked)
-{
-    Q_UNUSED(checked);
-    hitDots(1);
-}
-
+MainWindow::inc1Button_Clicked(bool checked) { Q_UNUSED(checked); hitDots(1); }
 void
-MainWindow::inc10Button_Clicked(bool checked)
-{
-    Q_UNUSED(checked);
-    hitDots(10);
-}
-
+MainWindow::inc10Button_Clicked(bool checked) { Q_UNUSED(checked); hitDots(10); }
 void
-MainWindow::inc100Button_Clicked(bool checked)
-{
-    Q_UNUSED(checked);
-    hitDots(100);
-}
-
+MainWindow::inc100Button_Clicked(bool checked) { Q_UNUSED(checked); hitDots(100); }
 void
-MainWindow::inc1000Button_Clicked(bool checked)
-{
-    Q_UNUSED(checked);
-    hitDots(1000);
-}
-
+MainWindow::inc1000Button_Clicked(bool checked) { Q_UNUSED(checked); hitDots(1000); }
 void
-MainWindow::inc10000Button_Clicked(bool checked)
-{
-    Q_UNUSED(checked);
-    hitDots(10000);
-}
-
+MainWindow::inc10000Button_Clicked(bool checked) { Q_UNUSED(checked); hitDots(10000); }
 void
-MainWindow::inc100000Button_Clicked(bool checked)
-{
-    Q_UNUSED(checked);
-    hitDots(100000);
-}
-
+MainWindow::inc100000Button_Clicked(bool checked) { Q_UNUSED(checked); hitDots(100000); }
 void
-MainWindow::inc1000000Button_Clicked(bool checked)
-{
-    Q_UNUSED(checked);
-    hitDots(1000000);
-}
-
+MainWindow::inc1000000Button_Clicked(bool checked) { Q_UNUSED(checked); hitDots(1000000); }
 void
-MainWindow::resetButton_Clicked(bool checked)
-{
-    Q_UNUSED(checked);
-    resetImage();
-}
+MainWindow::inc10000000Button_Clicked(bool checked) { Q_UNUSED(checked); hitDots(10000000); }
+void
+MainWindow::inc100000000Button_Clicked(bool checked) { Q_UNUSED(checked); hitDots(100000000); }
+void
+MainWindow::resetButton_Clicked(bool checked) { Q_UNUSED(checked); resetImage(); }
 
 void
 MainWindow::resetImage()
