@@ -30,6 +30,10 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addLayout(labelLayout);
     layout->addLayout(buttonLayout);
 
+    QFont font = piLabel->font();
+    font.setPointSize(20);
+    piLabel->setFont(font);
+
     connect(inc1Button, SIGNAL(clicked(bool)), this, SLOT(inc1Button_Clicked(bool)));
     connect(inc10Button, SIGNAL(clicked(bool)), this, SLOT(inc10Button_Clicked(bool)));
     connect(inc100Button, SIGNAL(clicked(bool)), this, SLOT(inc100Button_Clicked(bool)));
